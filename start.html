@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <title> Startsteite der Anzeige </title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css"
+          href="./style.css">
+    <link rel="stylesheet" type="text/css"
+          href="./flexbox.css" > 
+
+    
+</head>
+
+<body>
+
+    <header>
+        <h1> Studienverwaltung </h1>
+        <figure>
+            <a href="./dashboard.html"><img src="./titelbild.svg" alt="FH Dortmund Logo"> </a>
+        </figure>
+    </header>
+
+
+    <nav>
+        <ul>
+                <li><a href="./start.html">Übersicht</a></li>
+                <li><a href="./seminar_neu.html">Neues Seminar anlegen</a></li>
+                <li><a href="./seminarleiter.html">Seminarleiter</a></li>
+                <li><a href="./detail.html">Details zum Seminar</a></li>
+        </ul>
+    </nav>
+
+
+    
+    <div id="center">
+
+        <div id="hauptinhalt">
+
+        <h3>Suche nach Veranstaltungen</h3>
+        
+        <form method="GET" action="https://labs.inf.fh-dortmund.de/seminarApp/testSearch.php">
+            <input list="seminarliste" name="semtitle" required pattern="[A-Z]+[A-Za-z]{0,19}" />
+            <datalist id="seminarliste">
+                <option>Programmmierkurs 1</option>
+                <option>Programmmierkurs 2</option>
+                <option>Web Engineering</option>
+                <option>Kosten und Erlösrechnung</option>
+                <option>Marketing</option>
+                <option>Investition und Finanzierung</option>
+            </datalist>
+            <input type="submit" value="Finden" formmethod="get" />
+
+
+            <input type="button" value="Ausgabe der Breite"> 
+                <script src="script.js"></script>
+            </input>
+        </form>
+       
+        
+        <section class="event">
+        <h2>Veranstaltungsübersicht</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Titel des Seminars</th>
+                <th>Veranstaltungsdatum des Seminars</th>
+                <th>Veranstaltungsort</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="./detail.html">Programmmierkurs 1</a></td>
+                <td>11.04.2019</td>
+                <td>A.E.02</td>
+            </tr>
+            <tr>
+                <td><a href="./detail.html">Programmmierkurs 2</a></td>
+                <td>20.04.2019</td>
+                <td>B.E.02</td>
+            </tr>
+            <tr>
+                <td><a href="./detail.html">Web Engineering</a></td>
+                <td>01.05.2019</td>
+                <td>C.E.02</td>
+            </tr>
+            <tr>
+                <td><a href="./detail.html">Kosten und Erlösrechnung</a></td>
+                <td>05.07.2019</td>
+                <td>Auditorium der Mensa</td>
+            </tr>
+            <tr>
+                <td><a href="./detail.html">Marketing</a></td>
+                <td>01.04.2018</td>
+                <td>B.3.02</td>
+            </tr>
+            <tr>
+                <td><a href="./detail.html">Investition und Finanzierung</a></td>
+                <td>01.02.2017</td>
+                <td>C.E.02</td>
+            </tr>
+        </tbody>
+        </table>
+  
+    </section>
+    </div>
+
+
+    <aside class="aktuelles">
+        <p>Die Übung zum Programmierkurs fällt heute aus</p>
+    </aside>
+    </div>
+    <footer>
+        <p>&copy; 2019 by Benedikt Kurz</p>
+    </footer>
+
+</body>
+
+</html>

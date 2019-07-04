@@ -1,0 +1,162 @@
+﻿h1 {
+    color: rgb(248,97,20);	
+}
+
+@media only screen and (max-width:480px) {
+
+    h1 {
+        display: none;
+    }
+
+}
+
+h2 {
+    color: orangered;
+}
+
+
+
+h3 {
+    color: black;
+}
+input:required {
+    border: 5px solid;
+
+   
+}
+
+.req::after  {
+    
+    content: " (erforderliche Eingabe)";
+}
+
+
+input:invalid {
+    background-color: red;
+}
+
+input:valid {
+    background-color: green;
+
+}
+
+
+
+fieldset {
+
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    
+}
+
+header {
+
+    /* Positionierung der Elemente des Headers */
+    
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+
+    /* Formatierung Überschrift */
+    text-shadow: 5px 5px 5px  gray;
+    letter-spacing: 1em;
+    /* background-color: green; */
+}
+
+
+.beschreibung {
+
+    padding-left: 5px;
+    border-left: 2px solid black;
+}
+
+legend {
+    border-radius: 6px;
+    background-color: darkblue;
+    color: white;
+    padding: 3px;
+    margin: 3px;
+    box-shadow: 2px 2px 2px 2px grey;
+    font-style: italic;
+    font-size: small;
+
+}
+
+/*   
+ul li p {
+
+   font-weight: bold;
+
+}
+*/
+
+/*
+Attributselektor
+*/
+a.email::before {
+
+  background-image: url('./letter.png');
+  background-size: 25px 25px;
+  display: inline-block;
+  width: 25px; 
+  height: 25px;
+  content:"";
+}
+
+input:required {
+    background-color: burlywood;
+}
+
+p {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+aside {
+    background-color:  aqua;
+    padding: 3px;
+    margin: 3px;
+    border: dashed 2px;
+}
+
+nav ul li {
+
+    display: inline;
+    padding-top: 10px;
+    list-style-type: none;  
+   
+}
+
+nav li:hover {
+    background-color: yellow;
+    
+}
+
+section.event table th {
+    background-color: steelblue;
+}
+
+section.event table tr:nth-last-child(odd) {
+    background-color:  lightgray;
+}
+
+/* LAYOUTTING */ 
+main {
+
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+   
+}
+
+#informationen {
+    float: left;
+    
+}
+
+footer {
+
+    left: 10px;
+    bottom: 10px;
+    position: fixed;
+}
