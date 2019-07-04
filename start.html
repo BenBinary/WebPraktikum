@@ -55,52 +55,23 @@
 
 
             <input type="button" value="Ausgabe der Breite"> 
-                <script src="script.js"></script>
+                
             </input>
         </form>
        
         
-        <section class="event">
+        <section class="event" >
         <h2>Veranstaltungsübersicht</h2>
-        <table>
-            <thead>
+        <table id="seminartabelle" name="seminartabelle">
+            <thead  id="seminartabelle_head">
             <tr>
                 <th>Titel des Seminars</th>
                 <th>Veranstaltungsdatum des Seminars</th>
                 <th>Veranstaltungsort</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td><a href="./detail.html">Programmmierkurs 1</a></td>
-                <td>11.04.2019</td>
-                <td>A.E.02</td>
-            </tr>
-            <tr>
-                <td><a href="./detail.html">Programmmierkurs 2</a></td>
-                <td>20.04.2019</td>
-                <td>B.E.02</td>
-            </tr>
-            <tr>
-                <td><a href="./detail.html">Web Engineering</a></td>
-                <td>01.05.2019</td>
-                <td>C.E.02</td>
-            </tr>
-            <tr>
-                <td><a href="./detail.html">Kosten und Erlösrechnung</a></td>
-                <td>05.07.2019</td>
-                <td>Auditorium der Mensa</td>
-            </tr>
-            <tr>
-                <td><a href="./detail.html">Marketing</a></td>
-                <td>01.04.2018</td>
-                <td>B.3.02</td>
-            </tr>
-            <tr>
-                <td><a href="./detail.html">Investition und Finanzierung</a></td>
-                <td>01.02.2017</td>
-                <td>C.E.02</td>
-            </tr>
+        <tbody  name="seminartabelle_body">
+          
         </tbody>
         </table>
   
@@ -115,7 +86,7 @@
     <footer>
         <p>&copy; 2019 by Benedikt Kurz</p>
     </footer>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
