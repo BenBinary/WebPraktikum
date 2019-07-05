@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <title> Startsteite der Anzeige </title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css"
+          href="./css/style.css">
+    <link rel="stylesheet" type="text/css"
+          href="./css/flexbox.css" > 
+
+    
+</head>
+
+<body>
+
+    <header>
+        <h1> Studienverwaltung </h1>
+        <figure>
+            <a href="./dashboard.html"><img src="./img/titelbild.svg" alt="FH Dortmund Logo"> </a>
+        </figure>
+    </header>
+
+
+    <nav>
+        <ul>
+                <li><a href="./start.html">Übersicht</a></li>
+                <li><a href="./seminar_neu.html">Neues Seminar anlegen</a></li>
+                <li><a href="./seminarleiter.html">Seminarleiter</a></li>
+                <li><a href="./detail.html">Details zum Seminar</a></li>
+        </ul>
+    </nav>
+
+
+    
+    <div id="center">
+
+        <div id="hauptinhalt">
+
+        <h3>Suche nach Veranstaltungen</h3>
+        
+        <form method="GET" action="https://labs.inf.fh-dortmund.de/seminarApp/testSearch.php">
+            <input list="seminarliste" name="semtitle" required pattern="[A-Z]+[A-Za-z]{0,19}" />
+            <datalist id="seminarliste">
+                <option>Programmmierkurs 1</option>
+                <option>Programmmierkurs 2</option>
+                <option>Web Engineering</option>
+                <option>Kosten und Erlösrechnung</option>
+                <option>Marketing</option>
+                <option>Investition und Finanzierung</option>
+            </datalist>
+            <input type="submit" value="Finden" formmethod="get" />
+
+
+            <input type="button" value="Ausgabe der Breite"> 
+                
+            </input>
+        </form>
+       
+        
+        <section class="event" >
+        <h2>Veranstaltungsübersicht</h2>
+        <table id="seminartabelle" name="seminartabelle">
+            <thead  id="seminartabelle_head">
+            <tr>
+                <th>Titel des Seminars</th>
+                <th>Veranstaltungsdatum des Seminars</th>
+                <th>Veranstaltungsort</th>
+            </tr>
+        </thead>
+        <tbody  name="seminartabelle_body">
+          
+        </tbody>
+        </table>
+  
+    </section>
+    </div>
+
+
+    <aside class="aktuelles">
+        <p>Die Übung zum Programmierkurs fällt heute aus</p>
+    </aside>
+    </div>
+    <footer>
+        <p>&copy; 2019 by Benedikt Kurz</p>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

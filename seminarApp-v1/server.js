@@ -6,7 +6,7 @@ const http = require("http");
 
 const server = http.createServer(function(request, response) {
     // Statuscode und Header schreiben
-    response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
+    //esponse.writeHead(200, { "content-type": "text/html; charset=utf-8" });
 
     // VARIABLENDEKLARATION
 
@@ -36,13 +36,39 @@ const server = http.createServer(function(request, response) {
 
 
             try {
+
+                //Falls die angeforderte Datei existiert
                 if (fs.existsSync(path_request)) {
-                  
+
                     console.log("Die Datei exisitert");
                     html = fs.readFileSync(path_request,  { encoding: "utf-8" });
 
+                    if (url.endsWith(".css")) {
+
+                        response.writeHead(200, { "content-type": "text/css; charset=utf-8" });
+
+                    } else if (url.endsWith(".html")) {
+
+                        response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
+
+                    } else if (url.endsWith(".ico")){
+
+                        //response.writeHead(200, { "content-type": "image/ico; charset=utf-8" });
+
+                    } else if (url.endsWith(".jpg")){
+
+                        //response.writeHead(200, { "content-type": "image/jpg; charset=utf-8" });
+
+                    } else if (url.endsWith(".svg")){
+
+                        //response.writeHead(200, { "content-type": "image/svg" });
+                        
+                    }
+
                 } else {
 
+
+                    response.writeHead(404, { "content-type": "text/html; charset=utf-8" });
                     console.log("Es soll ein 404 ausgegeben werden");
                     html = fs.readFileSync(`${__dirname}/public/404.html`,
                     { encoding: "utf-8" });
