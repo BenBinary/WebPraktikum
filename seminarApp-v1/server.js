@@ -32,37 +32,33 @@ const server = http.createServer(function(request, response) {
             
         } else {
 
+            const path_request = `${__dirname}/public${url}`;
+
 
             try {
-                if (fs.existsSync(path)) {
-                  //file exists
+                if (fs.existsSync(path_request)) {
+                  
+                    console.log("Die Datei exisitert");
+                    html = fs.readFileSync(path_request,  { encoding: "utf-8" });
+
+                } else {
+
+                    console.log("Es soll ein 404 ausgegeben werden");
+                    html = fs.readFileSync(`${__dirname}/public/404.html`,
+                    { encoding: "utf-8" });
+
+
                 }
               } catch(err) {
                 console.error(err)
+                html = fs.readFileSync(`${__dirname}/public/404.html`,
+                { encoding: "utf-8" });
               }
-
-
-                // HTML-Inhalt mittels Template-Literal erstellen
-                html = `<!DOCTYPE html>
-                <html>
-                <head>
-                    <title>Hallo WEB1</title>
-                    <meta charset="utf-8">
-                </head>
-                <body>
-                    <h1>Hallo WEB1!</h1>
-                </body>
-            </html>`;
-            // Inhalt in einem einzigen Chunk schicken
         }
 
     }
 
-
-
-
     response.end(html);
-
 
     });
     
