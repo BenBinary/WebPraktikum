@@ -4,7 +4,7 @@ const fs = require("fs");
 // http-Modul mit Server erzeugung
 const http = require("http");
 
-const server = http.createServer(function(request, response) {
+const server = http.createServer(function (request, response) {
     // Statuscode und Header schreiben
     //esponse.writeHead(200, { "content-type": "text/html; charset=utf-8" });
 
@@ -27,12 +27,12 @@ const server = http.createServer(function(request, response) {
         // Bei normaler Anfrage --> Dashboard zurück
         if (url === "/") {
             html = fs.readFileSync(`${__dirname}/public/dashboard.html`,
-            { encoding: "utf-8" });
-            
-            
+                { encoding: "utf-8" });
+
+
         } else if (url === "/start.html") {
             // Bei mir heißt die Seite mit den verfügbaren Seminaren nur /start.html und nicht seminarliste.html
-            
+
             function Seminar(titel, seminarleiter, ort, startzeit, endzeit, freiePlaetze, verfugbarePlaetze, tutoren) {
 
                 this.titel = titel;
@@ -44,27 +44,26 @@ const server = http.createServer(function(request, response) {
                 this.verfugbarePlaetze = verfugbarePlaetze;
                 this.tutoren = tutoren;
 
-                this.belegtePlaetze = function() {
+                this.belegtePlaetze = function () {
                     return verfugbarePlaetze - freiePlaetze;
                 };
 
             }
 
-            let seminar_1 = new Seminar("Programmierkurs 1", "Sven Jörges", "A.E.03", new Date('2019-05-05T12:00:00'), new Date('2019-05-05T15:00:00'),5,12,new Array("tim1", "anke3", "thad3"));
-            let seminar_2 = new Seminar("Web-Technologien", "Sven Jörges", "A.E.01", new Date('2019-07-08T10:00:00'), new Date('2019-07-08T13:00:00'),10,20,new Array("den1", "blub2", "thad3"));
-            let seminar_3 = new Seminar("Algorithmen und Datenstrukturen", "Herr Koll", "A.E.01", new Date('2018-07-02T08:00:00'), new Date('2018-07-02T12:00:00'),2,20,new Array("den1", "blub2", "thad3"));
+            let seminar_1 = new Seminar("Programmierkurs 1", "Sven Jörges", "A.E.03", new Date('2019-05-05T12:00:00'), new Date('2019-05-05T15:00:00'), 5, 12, new Array("tim1", "anke3", "thad3"));
+            let seminar_2 = new Seminar("Web-Technologien", "Sven Jörges", "A.E.01", new Date('2019-07-08T10:00:00'), new Date('2019-07-08T13:00:00'), 10, 20, new Array("den1", "blub2", "thad3"));
+            let seminar_3 = new Seminar("Algorithmen und Datenstrukturen", "Herr Koll", "A.E.01", new Date('2018-07-02T08:00:00'), new Date('2018-07-02T12:00:00'), 2, 20, new Array("den1", "blub2", "thad3"));
 
             var seminare = new Array(seminar_2, seminar_1, seminar_3);
             console.log(seminare.length);
             console.log(seminare[0].tutoren);
 
-            seminare.sort(function(x, y) {
-                return x.startzeit-y.startzeit;
+            seminare.sort(function (x, y) {
+                return x.startzeit - y.startzeit;
             });
 
 
             html = `<!DOCTYPE html>
-
             <html lang="de">
             
             <head>
@@ -145,39 +144,26 @@ const server = http.createServer(function(request, response) {
                             <th>Veranstaltungsort</th>
                         </tr>
                     </thead>
-                    <tbody  name="seminartabelle_body">
-                    <script>
+                    <tbody  name="seminartabelle_body"> 
+  `
+        
+            //Ausgabe der Elemente
+            seminare.forEach(function (elem) {
 
-                    
-                    let tabelle = dcument.getElementById("seminartabelle_head");
-                    console.log("Hallo " + tabelle);
-                    
-                    //Ausgabe der Elemente
-                    seminare.forEach(function(elem) {
-                    
-                        var belegte = elem.belegtePlaetze();
-                        let eintrag_row = document.createElement("tr");
-           
-                        let seminar_titel = document.createElement("td");
-                        let seminar_zeit = document.createElement("td");
-                        let seminar_ort = document.createElement("td");
-                    
-                        
-                        seminar_titel.innerHTML = elem.titel;
-                        seminar_zeit.innerHTML = elem.startzeit.toLocaleDateString();
-                        seminar_ort.innerHTML = elem.ort;
-                    
-                        eintrag_row.append(seminar_titel);
-                        eintrag_row.append(seminar_zeit);
-                        eintrag_row.append(seminar_ort);
-                        
-                        
-                        tabelle.appendChild(eintrag_row);
 
-                    
-                      </script>
+                var row = `<tr><td><a href="./detail.html">${elem.titel}</a></td><td>${elem.startzeit.toLocaleDateString()}</td><td>${elem.ort}</td></tr>`
+
+                html += row;
+
+
+               console.log(row);
+            });
+
+
+            html += `
                     </tbody>
                     </table>
+                    
               
                 </section>
                 </div>
@@ -198,6 +184,8 @@ const server = http.createServer(function(request, response) {
 
 
 
+
+
         } else {
 
             const path_request = `${__dirname}/public${url}`;
@@ -209,7 +197,7 @@ const server = http.createServer(function(request, response) {
                 if (fs.existsSync(path_request)) {
 
                     console.log("Die Datei exisitert");
-                    html = fs.readFileSync(path_request,  { encoding: "utf-8" });
+                    html = fs.readFileSync(path_request, { encoding: "utf-8" });
 
                     if (url.endsWith(".css")) {
 
@@ -219,26 +207,26 @@ const server = http.createServer(function(request, response) {
 
                         response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
 
-                    } else if (url.endsWith(".ico")){
+                    } else if (url.endsWith(".ico")) {
 
                         response.setHeader('content-type', 'image/ico');
-                        response.writeHead( 200, { "content-type": "image/ico" });
+                        response.writeHead(200, { "content-type": "image/ico" });
 
-                    } else if (url.endsWith(".jpg")){
+                    } else if (url.endsWith(".jpg")) {
 
                         response.setHeader('content-type', 'image/jpg');
                         response.writeHead(200, { "content-type": "image/jpeg" });
 
-                    } else if (url.endsWith(".svg")){
+                    } else if (url.endsWith(".svg")) {
 
 
                         console.log("Es wurde das Titelbild angefordert");
                         response.setHeader('content-type', 'image/svg');
                         response.writeHead(200, { "content-type": "image/svg+xml" });
-                        
 
 
-                        
+
+
                     }
 
                 } else {
@@ -247,26 +235,26 @@ const server = http.createServer(function(request, response) {
                     response.writeHead(404, { "content-type": "text/html; charset=utf-8" });
                     console.log("Es soll ein 404 ausgegeben werden");
                     html = fs.readFileSync(`${__dirname}/public/404.html`,
-                    { encoding: "utf-8" });
+                        { encoding: "utf-8" });
 
 
                 }
-              } catch(err) {
+            } catch (err) {
                 console.error(err)
                 html = fs.readFileSync(`${__dirname}/public/404.html`,
-                { encoding: "utf-8" });
-              }
+                    { encoding: "utf-8" });
+            }
         }
 
     }
 
     response.end(html);
 
-    });
-    
+});
 
-server.listen(8020, function() {
+
+server.listen(8020, function () {
     // Callback-Funktion, Ausgabe erfolgt nach erfolgreicher
     // Bindung des Servers
-        console.log("Ich lausche nun auf http://localhost:8020");
-    });
+    console.log("Ich lausche nun auf http://localhost:8020");
+});
