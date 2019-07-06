@@ -96,7 +96,7 @@ Attributselektor
 */
 a.email::before {
 
-  background-image: url('./letter.png');
+    background-image: url('../img/letter.svg');
   background-size: 25px 25px;
   display: inline-block;
   width: 25px; 
