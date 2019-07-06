@@ -1,0 +1,115 @@
+/* Bisher in Praktikum 10 */
+
+#container {
+    display: grid;
+    grid-template-areas:    "head head head"
+                            "nav nav nav"
+                            "main main side";
+                            /*
+                            "main main side"
+                            "main main side"; */
+                
+                            /* grid-template-columns: 30% 30% 20%; */
+    padding: 10px;
+    margin: 5px;
+    height: 200px;
+  }
+
+@media screen and (max-width:768px) {
+    #container {
+        /* display: grid; */
+        grid-template-areas:    "head head head"
+                                "nav nav nav"
+                                "main main main"
+                                "side side side";
+        padding: 10px;
+        margin: 5px;
+        height: 200px;
+      }
+
+}
+
+
+
+/* GENERAL */
+aside {
+    grid-area: side;
+}
+
+header {
+      grid-area: head;
+  }
+
+ nav {
+      grid-area: nav;
+  }
+
+fieldset {
+      grid-area: main;
+}
+
+/*  Formular um neues Seminar anzulegen */
+#formular {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: "top"
+                    "middle"
+                    "bottom";
+  }
+
+#general {
+    grid-area: top;
+}
+
+#time {
+    grid-area: middle;
+}
+
+#send {
+    grid-area: bottom;
+}
+
+
+/* Für Seminarleiter */
+
+main {
+
+    grid-area: main;
+    display: grid;
+    grid-template-areas: "left right";
+}
+
+@media screen and (max-width:480px) {
+
+    #container {
+    /* display: grid; */
+    grid-template-areas:    "head head head"
+                            "nav nav nav"
+                            "main main main"
+                            "side side side";
+    padding: 10px;
+    margin: 5px;
+    height: 200px;
+    }
+
+    main {
+
+    grid-area: main;
+    display: grid;
+    grid-template-areas:    "left left"
+                            "right right";
+    }
+
+}
+
+#informationen {
+    grid-area: left;
+}
+
+#bild_seminarleiter {
+    grid-area: right;
+}
+
+
+
+
