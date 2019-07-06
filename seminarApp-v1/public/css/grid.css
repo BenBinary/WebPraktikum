@@ -107,9 +107,14 @@ main {
 }
 
 #bild_seminarleiter {
+
     grid-area: right;
 }
 
+  
 
-
-
+img {
+    max-width: 100%;
+    height: auto;
+   
+}

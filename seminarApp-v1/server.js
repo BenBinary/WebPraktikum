@@ -20,10 +20,8 @@ const server = http.createServer(function (request, response) {
 
     // Alle get Anfragen
     if (request.method === "GET") {
-        console.log("Es wurde get gefordert");
-        console.log(url);
-
-
+        console.log(`Es wurde get gefordert von ${url}`);
+        
         // Bei normaler Anfrage --> Dashboard zurück
         if (url === "/") {
             html = fs.readFileSync(`${__dirname}/public/dashboard.html`,
@@ -104,16 +102,7 @@ const server = http.createServer(function (request, response) {
                     <div id="hauptinhalt">
             
                     <h3 id="ueberschrift_h3">Suche nach Veranstaltungen </h3>
-                    <script>
-                        
-                            const name = " Benedikt Kurz";
-                            const h3 = document.getElementById("ueberschrift_h3");
-                            h3.append(name);
-                            console.log("H3 Typ" + h3);
-                            console.log(blub);
-
-                        
-                    </script>
+         
                     
                     <form method="GET" action="https://labs.inf.fh-dortmund.de/seminarApp/testSearch.php">
                         <input list="seminarliste" name="semtitle" required pattern="[A-Z]+[A-Za-z]{0,19}" />
@@ -183,9 +172,6 @@ const server = http.createServer(function (request, response) {
 
 
 
-
-
-
         } else {
 
             const path_request = `${__dirname}/public${url}`;
@@ -214,18 +200,22 @@ const server = http.createServer(function (request, response) {
 
                     } else if (url.endsWith(".jpg")) {
 
-                        response.setHeader('content-type', 'image/jpg');
-                        response.writeHead(200, { "content-type": "image/jpeg" });
+                        console.log("Ein jpg Bild wurde angefordert");
+                        response.setHeader('content-type', 'image/jpeg');
+                        response.writeHead(200, { "content-type": "text/plain" });
 
                     } else if (url.endsWith(".svg")) {
 
 
                         console.log("Es wurde das Titelbild angefordert");
                         response.setHeader('content-type', 'image/svg');
-                        response.writeHead(200, { "content-type": "image/svg+xml" });
+                        response.writeHead((200), { "content-type": "image/svg+xml" }); //, { "content-type": "image/svg+xml" }
 
+                    } else if (url.endsWith(".png")) {
 
-
+                        console.log("Es wurde ein png Bild angefordert");
+                        response.setHeader('content-type', 'image/png');
+                        response.writeHead( 200, { "content-type": "text/plain" });
 
                     }
 
