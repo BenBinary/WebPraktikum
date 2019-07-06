@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Neues Seminar anlegen</title>
+
+    <link rel="stylesheet" type="text/css"
+          href="./css/style.css">
+    <link rel="stylesheet" type="text/css"
+          href="./css/grid.css">
+
+</head>
+<body>
+
+    
+
+    <form method="post" action="https://labs.inf.fh-dortmund.de/seminarApp/testCreateSeminar.php">
+        
+        <div id="container"> 
+        <header>
+                    <h1> Studienverwaltung </h1>
+                    <figure>
+                            <a href="./dashboard.html"><img src="./img/titelbild.svg" alt="FH Dortmund Logo"> </a>
+                    </figure>
+        </header>
+
+        <nav>
+                    <ul>
+                        <li><a href="./seminarliste">Übersicht</a></li>
+                        <li><a href="./seminarneu">Neues Seminar anlegen</a></li>
+                        <li><a href="./seminarleiter">Seminarleiter</a></li>
+                        <li><a href="./seminardetail">Details zum Seminar</a></li>
+                    </ul>
+        </nav>
+
+
+            <div id="formular">
+
+                <fieldset id="general">
+                    <legend>Allgemein</legend>
+                    <p> <label for="titel">Seminartitel</label> 
+                        <span class="req"> 
+                            <input type="text" autofocus placeholder="Seminartitel" maxlength="20" required pattern="[A-Z]+[a-zA-Z]*" name="semtitle" id="titel"/>
+                        </span>
+                    </p>
+                    <p>
+                        <label for="seminarleiter">
+                            Seminarleiter:
+                        </label>
+                        
+                        <select id="seminarleiter" name="semlead"  size="1">
+                            <option value="Herr Jörges">Herr Jörges</option>
+                            <option value="Herr Koll">Herr Koll</option>
+                            <option value="Frau Sachweh">Frau Sachweh</option>
+                            <option value="Herr Wiesmann">Herr Wiesmann</option>
+
+                        </select>
+                        
+                    </p>
+
+                    <p>
+                        <label for="semtutors">Tutor</label> 
+                            <input type="text" name="semtutors" required pattern="[a-z]{2,4}[0-9](,[a-z]{2,4}[0-9])*" id="semtutors"/>
+                    </p>
+                </fieldset>
+
+                <fieldset id="time">
+                    <legend>Zeitangaben</legend>
+                    <p> <label for="semdate"> Veranstaltungsdatum </label> <input required type="date" min="2019-01-01" max="2030-01-01" name="semdate" id="semdate"/> </p>
+                    <p> <label for="semstart"> Startzeit </label> <input required type="time" name="semstart" min="08:00" max="16:00"  id="semstart" /></p>
+                    <p> <label for="semend"> Endzeit </label> <input required type="time" name="semend" min="00:00" max="18:00" id="semend"/></p>
+                </fieldset>
+
+
+                <fieldset id="send">
+                    <legend>Senden</legend>
+
+                    <label for="plaetze">Anzahl insgesamt verfügbarer Plätze</label> 
+                        <input type="text" required name="semseats" pattern="[0-9]{1,3}" id="plaetze"/>
+                    <input type="submit" />
+
+                </fieldset>
+
+            </div>
+            
+            <aside>
+                    <p>Die Übung zum Programmierkurs fällt heute aus</p>
+                </aside>
+
+                
+            <footer>
+                    <p>&copy; 2019 by Benedikt Kurz</p>
+                </footer>
+        
+        </div>
+           
+        </form>
+
+          
+
+     
+
+
+</body>
+</html>
