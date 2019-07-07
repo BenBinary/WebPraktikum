@@ -36,10 +36,6 @@
             </datalist>
             <input type="submit" value="Finden" formmethod="get" />
 
-
-            <input type="button" value="Ausgabe der Breite"> 
-                
-            </input>
         </form>
        
         
@@ -55,7 +51,23 @@
         </thead>
         <tbody  name="seminartabelle_body">
           
+        
+  
+
+        <% seminare.forEach(forSeminare); %>
+
+
+        <% function forSeminare(value, index, array) { %>
+
+            <tr> 
+                <td><a href="./seminardetail"><%= value.titel %></a></td> 
+                <td><%= value.startzeit.toLocaleDateString() %></td> 
+                <td><%= value.ort %></td> 
+            </tr>
+
+        <% } %>
         </tbody>
+
         </table>
   
     </section>
@@ -68,7 +80,7 @@
    
 
     <%- include("includes/foot.ejs") %>
-    <script src="./js/script.js"></script>
+   <!-- <script src="./js/script.js"></script> -->
 </body>
 
 </html>

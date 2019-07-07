@@ -10,6 +10,8 @@ const app = express();
 const fs = require("fs");
 
 
+const seminar_array = require(`${__dirname}/../models/seminars.js`);
+
 //const url = request.url;
 //const method = request.method;
 
@@ -31,7 +33,17 @@ router.get("/seminarliste", function(req, res, next) {
     // Antwort für Zugriff auf URL "/new" mit Methode GET erzeugen
     //res.send(fs.readFileSync(`${__dirname}/views/dashboard.ejs`));
     res.status(200);
-    res.render(`seminarliste`);
+
+    console.log(`If file exists ` + fs.existsSync(__dirname+"/../models/seminars.js"));
+   // var sem = fs.readFileSync(`${__dirname}/../models/seminars.js`);
+
+
+    console.log(seminar_array[0]);
+
+    console.log(seminar_array[2]);
+
+    
+    res.render(`seminarliste`, {"seminare":seminar_array});
 });
 
 // SEMINARDETAIL
