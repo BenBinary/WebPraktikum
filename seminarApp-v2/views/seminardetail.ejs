@@ -13,21 +13,9 @@
 </head>
 
 <body>
-        <header>
-            <h1> Studienverwaltung </h1>
-            <figure>
-                    <a href="./"><img src="./img/titelbild.svg" alt="FH Dortmund Logo"> </a>
-            </figure>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="./seminarliste">Übersicht</a></li>
-                <li><a href="./seminarneu">Neues Seminar anlegen</a></li>
-                <li><a href="./seminarleiter">Seminarleiter</a></li>
-                <li><a href="./seminardetail">Details zum Seminar</a></li>
-            </ul>
-        </nav>
 
+
+    <%- include("includes/nav.ejs") %>
 
         <div id="center">
         <div id="hauptinhalt">
@@ -51,15 +39,13 @@
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit aut velit quo voluptate quisquam repudiandae, fugit omnis commodi distinctio eum natus, tempore laboriosam nihil deleniti placeat itaque mollitia dolores odio!</p>
         </section>
         </div>
-        <aside>
-            <p>Die Übung zum Programmierkurs fällt heute aus</p>
-        </aside>
+        <%- include("includes/info.ejs") %>
  
     </div>
 
-        <footer>
-            <p>&copy; 2019 by Benedikt Kurz</p>
-        </footer>
+       
+
+        <%- include("includes/foot.ejs") %>
  
 </body>
 

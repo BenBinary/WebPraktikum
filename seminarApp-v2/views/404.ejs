@@ -9,7 +9,8 @@
           href="./css/style.css">
 
        
-
+          <link rel="stylesheet" type="text/css"
+          href="./css/grid.css">
    
 </head>
 
@@ -17,15 +18,22 @@
 
     <div id="container">
 
+
+
+    <%- include("includes/nav.ejs") %>
+
+    <fieldset>
   
         <h1>Error 404</h1>
         <p>
             Die angeforderte Seite existiert nicht
         </p>
 
-        <footer>
-            <p>&copy; 2019 by Benedikt Kurz</p>
-        </footer>
+    </fieldset>
+
+        <%- include("includes/info.ejs") %>
+
+        <%- include("includes/foot.ejs") %>
     </div>
 
 </body>
