@@ -3,6 +3,9 @@ const express = require("express");
 // Initialisieren von Express
 const router = express.Router();
 
+//Deklarieren einer APP-Konstanten
+const app = express();
+
 // Einbinden von File Systen
 const fs = require("fs");
 
@@ -11,8 +14,8 @@ const fs = require("fs");
 //const method = request.method;
 
 
-router.set("view engine", "ejs");
-router.set("views", "views");
+app.set("view engine", "ejs");
+app.set("views", "views");
 
 // DASHBOARD
 router.get("/", function(req, res, next) {
@@ -56,15 +59,10 @@ router.get("/seminarneu", function(req, res, next) {
 });
 
 
-
 router.use(function(req, res, next) {
-
-
-    
 
     console.log("Zweite Middleware! " + req.url);
     // Senden der Antwort - Kette beenden
-
 
     let url = req.url;
 
