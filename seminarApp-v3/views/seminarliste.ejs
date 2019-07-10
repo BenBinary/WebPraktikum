@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <title> Startsteite der Anzeige </title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css"
+          href="./css/style.css">
+    <link rel="stylesheet" type="text/css"
+          href="./css/flexbox.css" > 
+
+    
+</head>
+
+<body>
+
+    <%- include("includes/nav.ejs") %>
+    
+    <div id="center">
+
+        <div id="hauptinhalt">
+
+        <h3>Suche nach Veranstaltungen</h3>
+        
+        <form method="GET" action="https://labs.inf.fh-dortmund.de/seminarApp/testSearch.php">
+            <input list="seminarliste" name="semtitle" required pattern="[A-Z]+[A-Za-z]{0,19}" />
+            <datalist id="seminarliste">
+                <option>Programmmierkurs 1</option>
+                <option>Programmmierkurs 2</option>
+                <option>Web Engineering</option>
+                <option>Kosten und Erlösrechnung</option>
+                <option>Marketing</option>
+                <option>Investition und Finanzierung</option>
+            </datalist>
+            <input type="submit" value="Finden" formmethod="get" />
+
+        </form>
+       
+        
+        <section class="event" >
+        <h2>Veranstaltungsübersicht</h2>
+        <table id="seminartabelle" name="seminartabelle">
+            <thead  id="seminartabelle_head">
+            <tr>
+                <th>Titel des Seminars</th>
+                <th>Veranstaltungsdatum des Seminars</th>
+                <th>Veranstaltungsort</th>
+            </tr>
+        </thead>
+        <tbody  name="seminartabelle_body">
+          
+        
+  
+
+        <% seminare.forEach(forSeminare); %>
+
+
+        <% function forSeminare(value, index, array) { %>
+
+            <tr> 
+                <td><a href="./seminardetail"><%= value.titel %></a></td> 
+                <td><%= value.startzeit.toLocaleDateString() %></td> 
+                <td><%= value.ort %></td> 
+            </tr>
+
+        <% } %>
+        </tbody>
+
+        </table>
+  
+    </section>
+    </div>
+
+    <%- include("includes/info.ejs") %>
+  
+    </div>
+ 
+   
+
+    <%- include("includes/foot.ejs") %>
+   <!-- <script src="./js/script.js"></script> -->
+</body>
+
+</html>
