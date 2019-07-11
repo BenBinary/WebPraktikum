@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 //Deklarieren einer APP-Konstanten
-const app = express();
+//const app = express();
 
 // Einbinden von File Systen
 const fs = require("fs");
@@ -16,8 +16,8 @@ const seminar_array = require(`${__dirname}/../models/seminars.js`);
 //const method = request.method;
 
 
-app.set("view engine", "ejs");
-app.set("views", "views");
+//app.set("view engine", "ejs");
+//app.set("views", "views");
 
 // DASHBOARD
 router.get("/", function(req, res, next) {

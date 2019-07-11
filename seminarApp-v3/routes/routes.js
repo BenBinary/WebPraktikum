@@ -37,11 +37,8 @@ router.get("/seminarliste", function(req, res, next) {
     console.log(`If file exists ` + fs.existsSync(__dirname+"/../models/seminars.js"));
    // var sem = fs.readFileSync(`${__dirname}/../models/seminars.js`);
 
-
-    console.log(seminar_array[0]);
-
-    console.log(seminar_array[2]);
-
+    //console.log(seminar_array[0]);
+    //console.log(seminar_array[2]);
     
     res.render(`seminarliste`, {"seminare":seminar_array});
 });

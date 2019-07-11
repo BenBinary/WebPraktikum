@@ -5,7 +5,6 @@ var connection = mysql.createConnection({
     host : 'localhost',
     user : 'user',
     password : '123456'
-
 });
 
 connection.connect();
@@ -39,15 +38,16 @@ connection.query('SELECT * from seminare;', function(err, rows, fields) {
  //   if (err) throw err;
 
     rows.forEach(element => {
-        console.log(element);
+        //console.log(element);
         
         let seminar = new Seminar(element.titel, element.leiter, element.ort, element.startzeit, element.endzeit, element.tutoren); 
         seminare.push(seminar);
     });
 
     
- //   console.log('The solution is: ', rows[0].solution);
+    var json = JSON.stringify(seminare);
 
+    //console.log(json);
 
   });
   
@@ -62,4 +62,4 @@ connection.query('SELECT * from seminare;', function(err, rows, fields) {
 
 var seminar_export = "Seminare = " + seminare;
 
-module.exports = seminare;
+module.exports = seminare, Seminar;
